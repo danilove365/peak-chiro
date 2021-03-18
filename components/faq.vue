@@ -41,6 +41,22 @@
           </v-col>
 
           <v-col
+            class="pa-5"
+            cols="12"
+            md="6"
+          >
+            <base-bubble-1 style="transform: translate(5%, -5%)" />
+
+            <base-text
+              v-for="question in localText.faqQuestions"
+              :key="question"
+              class="mb-5"
+            >
+              {{ question }}
+            </base-text>
+          </v-col>
+
+          <!-- <v-col
             v-for="(service, i) in services"
             :key="i"
             class="text-center mb-3"
@@ -66,7 +82,7 @@
               />
               <div v-html="service.blurb" />
             </base-text>
-          </v-col>
+          </v-col> -->
         </v-row>
       </v-col>
     </v-row>

@@ -21,12 +21,17 @@
           {{ localText.reviewText }}
         </base-text>
 
-        <v-carousel>
+        <v-carousel
+          cycle
+        >
           <v-carousel-item
             v-for="project in projects"
             :key="project"
-            :src="require(`@/static/${project}.jpeg`)"
-          />
+          >
+            <testimonial
+              :test="project"
+            />
+          </v-carousel-item>
         </v-carousel>
       </v-col>
 
@@ -45,17 +50,16 @@
 
 <script>
 import text from '../text.json'
+import Testimonial from './Testimonial'
+
 export default {
   name: 'RecentProjects',
-
+  components: {
+    Testimonial
+  },
   data: () => ({
     localText: text,
-    projects: [
-      'project1',
-      'project2',
-      'project3',
-      'project4'
-    ],
+    projects: text.testimonials,
     items: [
       {
         src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
